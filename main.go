@@ -21,10 +21,10 @@ func main() {
 		log.Fatal("LINE bot client creation error:", err)
 	}
 
-	// 通常の確認用ページ
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "Hello, World!! Goだよ!")
-	})
+	// // 通常の確認用ページ
+	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	fmt.Fprint(w, "Hello, World!! Goだよ!")
+	// })
 
 	// LINE Webhook エンドポイント
 	http.HandleFunc("/callback", func(w http.ResponseWriter, req *http.Request) {
