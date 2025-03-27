@@ -1,6 +1,7 @@
 module aisys.com/myapp
 
-go 1.24.0
-go mod init your-module-name
-go get github.com/line/line-bot-sdk-go/linebot
-go mod tidy
+go 1.20
+
+require (
+	github.com/line/line-bot-sdk-go v7.11.0+incompatible
+)
