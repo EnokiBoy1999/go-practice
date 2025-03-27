@@ -28,7 +28,9 @@ func main() {
 
 	// LINE Webhook エンドポイント
 	http.HandleFunc("/callback", func(w http.ResponseWriter, req *http.Request) {
-		// 署名の検証とイベントのパース
+		// 計測開始
+		s := time.Now()
+
 		events, err := bot.ParseRequest(req)
 		if err != nil {
 			if err == linebot.ErrInvalidSignature {
@@ -51,6 +53,7 @@ func main() {
 						log.Println("Reply error:", err)
 					}
 					log.Printf("Replied 'test' to user: %s\n", event.Source.UserID)
+					log.Printf("process time: %s\n", time.Since(s))
 				}
 			}
 		}
